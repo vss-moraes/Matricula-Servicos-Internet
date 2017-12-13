@@ -1,0 +1,27 @@
+<%= form_with(model: aluno, local: true) do |form| %>
+  <% if aluno.errors.any? %>
+    <div id="error_explanation">
+      <h2>Erros:</h2>
+
+      <ul>
+      <% aluno.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nome %>
+    <%= form.text_field :nome, id: :aluno_nome %>
+  </div>
+
+  <div class="field">
+    <%= form.label :semestre %>
+    <%= form.number_field :semestre, id: :aluno_semestre %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
